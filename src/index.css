@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.box-shadow {
+  box-shadow: 1px 1px 5px grey;
+}
+
+.card-title {
+  font-size: 20px;
+}
+
+.card-text {
+  font-size: 12px;
+}

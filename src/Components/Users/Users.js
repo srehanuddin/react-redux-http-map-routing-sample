@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios';
+import { Get } from 'react-axios';
+import { Link } from 'react-router-dom';
 
 import Config from './../../Config';
 
@@ -30,15 +31,15 @@ class Users extends Component {
                     return (
                         <div className="container">
                             <div className="row">
-                                {response.data.map(item => <div className="col-md-4" key={item.id}>
-                                    <div className="card">
-                                        <div className="card-block">
+                                {response.data.map(item => <div className="col-xs-12 col-sm-6 col-md-6 col-lg-4" key={item.id}>
+                                    <div className="card mb-3">
+                                        <div className="card-block box-shadow">
                                             <h4 className="card-title">{item.name}</h4>
-                                            <p class="card-text">
+                                            <p className="card-text">
                                                 <span>{item.username}</span>
                                                 <span>{item.email}</span>
                                             </p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            <Link to={"/Users/" + item.id} className="btn btn-primary btn-sm">View</Link>
                                         </div>
                                     </div>
                                 </div>)} 
