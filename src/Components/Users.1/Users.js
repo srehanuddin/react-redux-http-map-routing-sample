@@ -1,26 +1,10 @@
 import React, { Component } from 'react';
 import { Get } from 'react-axios';
 import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
 
 import Config from './../../Config';
 
 import './Users.css';
-
-
-function mapStateToProps(state) {
-    console.log("user", state)
-    return { ...state }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        login: function(user){
-            dispatch({type: 'LOGIN', user : user});
-        }
-    };
-}
-
 
 class Users extends Component {
     constructor(){
@@ -56,7 +40,6 @@ class Users extends Component {
                                                 <span>{item.email}</span>
                                             </p>
                                             <Link to={"/Users/" + item.id} className="btn btn-primary btn-sm">View</Link>
-                                            <button onClick={this.props.login.bind(this, item)} className="btn btn-primary btn-sm ml-1">Login</button>
                                         </div>
                                     </div>
                                 </div>)} 
@@ -76,5 +59,5 @@ class Users extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export default Users;
 

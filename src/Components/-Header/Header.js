@@ -1,8 +1,31 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import {connect} from 'react-redux';
+
+function mapStateToProps(state) {
+    console.log("user", state)
+    return { ...state }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        logout: function(){
+            dispatch({type: 'LOGOUT'});
+        }
+    };
+}
 
 class Header extends Component {
   render() {
+
+    /*let button = null;
+    if (this.props.user) {
+      button = <input className="form-control mr-sm-2" type="text" disabled />
+      <NavLink to="/Users" className="btn btn-outline-primary my-2 my-sm-0" activeClassName="active" >Logout</NavLink>;
+    } else {
+      button = <LoginButton onClick={this.handleLoginClick} />;
+    }*/
+
     return (
         <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
             <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,8 +45,24 @@ class Header extends Component {
                     </li>
                 </ul>
                 <form className="form-inline mt-2 mt-md-0">
-                    <input className="form-control mr-sm-2" type="text" placeholder="Search" />
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    {/* <input className="form-control mr-sm-2" type="text" placeholder="Search" />
+                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
+
+                    { 
+                        this.props.user 
+                        ? 
+                        <div>
+                            <input className="form-control mr-sm-2" type="text" disabled value={this.props.user.name} />
+                            <button onClick={this.props.logout.bind(this)}  className="btn btn-outline-primary my-2 my-sm-0" >Logout</button>
+                        </div>
+                        : 
+                        <NavLink to="/Users" className="btn btn-outline-primary my-2 my-sm-0" activeClassName="active" >Login</NavLink>
+                    }
+                    
+                    {/* <input className="form-control mr-sm-2" type="text" disabled />
+                    <NavLink to="/Users" className="btn btn-outline-primary my-2 my-sm-0" activeClassName="active" >Logout</NavLink>
+                    <NavLink to="/Users" className="btn btn-outline-primary my-2 my-sm-0" activeClassName="active" >Login</NavLink> */}
+
                 </form>
             </div>
         </nav>
@@ -31,5 +70,5 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
