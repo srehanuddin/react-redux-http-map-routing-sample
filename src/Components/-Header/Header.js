@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
   render() {
@@ -8,17 +8,17 @@ class Header extends Component {
             <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <Link to="/" className="navbar-brand" >Sample App</Link>
+            <NavLink to="/" className="navbar-brand" >Sample App</NavLink>
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <Link to="/" className="nav-link" activeClassName="active" >Home <span className="sr-only">(current)</span></Link>
+                        <NavLink to="/" className="nav-link" activeClassName="active" >Home <span className="sr-only">(current)</span></NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link to="/Users" className="nav-link" activeClassName="active" >Users</Link>
+                        <NavLink to="/Users" className="nav-link" activeClassName="active" >Users</NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link to="/" className="nav-link disabled" activeClassName="active" >Disabled</Link>
+                        <NavLink to="/" className="nav-link disabled" activeClassName="active" >Disabled</NavLink>
                     </li>
                 </ul>
                 <form className="form-inline mt-2 mt-md-0">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios';
+import { Get } from 'react-axios';
 
 import './UsersDetail.css';
 
@@ -47,7 +47,7 @@ class Users extends Component {
 
                                 </p>
 
-                                <Map isMarkerShown />
+                                <Map isMarkerShown lat={response.data.address.geo.lat} lng={response.data.address.geo.lng} />
 
                             </div>
                         </div>

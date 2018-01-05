@@ -1,22 +1,8 @@
-/*import React, { Component } from 'react';
-import { withGoogleMap, withScriptjs, GoogleMap, Marker } from "react-google-maps"
-
-class MapCom extends Component {
-  render() {
-    return (
-        <GoogleMap
-            defaultZoom={8}
-            defaultCenter={{ lat: -34.397, lng: 150.644 }}
-        >
-            {this.props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
-        </GoogleMap>
-    );
-  }
-}*/
-
 import React from "react";
-import ReactDOM from "react-dom";
 import { compose, withProps } from "recompose";
+
+import Config from './../../Config';
+
 import {
   withScriptjs,
   withGoogleMap,
@@ -24,7 +10,7 @@ import {
   Marker
 } from "react-google-maps";
 
-const MyMapComponent = compose(
+const Map = compose(
   withProps({
     /**
      * Note: create and replace your own key in the Google console.
@@ -32,7 +18,7 @@ const MyMapComponent = compose(
      * The key "AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q" can be ONLY used in this sandbox (no forked).
      */
     googleMapURL:
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q&v=3.exp&libraries=geometry,drawing,places",
+      "https://maps.googleapis.com/maps/api/js?key=" + Config.GoogleAPIKey + "&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px` }} />,
     mapElement: <div style={{ height: `100%` }} />
@@ -40,12 +26,12 @@ const MyMapComponent = compose(
   withScriptjs,
   withGoogleMap
 )(props => (
-  <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
+  <GoogleMap defaultZoom={8} defaultCenter={{ lat: Number(props.lat), lng: Number(props.lng) }}>
     {props.isMarkerShown && (
-      <Marker position={{ lat: -34.397, lng: 150.644 }} />
+      <Marker position={{ lat:  Number(props.lat), lng:  Number(props.lng) }} />
     )}
   </GoogleMap>
 ));
 
-export default Map = MyMapComponent;
+export default Map;
 
