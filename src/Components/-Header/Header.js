@@ -41,13 +41,11 @@ class Header extends Component {
                         <NavLink to="/Users" className="nav-link" activeClassName="active" >Users</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/" className="nav-link disabled" activeClassName="active" >Disabled</NavLink>
+                        <NavLink to="/Posts" className="nav-link" activeClassName="active" >All Posts</NavLink>
                     </li>
                 </ul>
                 <form className="form-inline mt-2 mt-md-0">
-                    {/* <input className="form-control mr-sm-2" type="text" placeholder="Search" />
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
-
+                    
                     { 
                         this.props.user 
                         ? 
@@ -58,10 +56,6 @@ class Header extends Component {
                         : 
                         <NavLink to="/Users" className="btn btn-outline-primary my-2 my-sm-0" activeClassName="active" >Login</NavLink>
                     }
-                    
-                    {/* <input className="form-control mr-sm-2" type="text" disabled />
-                    <NavLink to="/Users" className="btn btn-outline-primary my-2 my-sm-0" activeClassName="active" >Logout</NavLink>
-                    <NavLink to="/Users" className="btn btn-outline-primary my-2 my-sm-0" activeClassName="active" >Login</NavLink> */}
 
                 </form>
             </div>

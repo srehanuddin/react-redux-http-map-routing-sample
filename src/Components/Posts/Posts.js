@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Config from './../../Config';
 
-import './Users.css';
+import './Posts.css';
 
 class Users extends Component {
     constructor(){
@@ -18,7 +18,7 @@ class Users extends Component {
 
     return (
         <div className="container">
-            <Get url={this.state.baseURL + 'users'} >
+            <Get url={this.state.baseURL + 'posts'} >
                 {(error, response, isLoading, onReload) => {
                     console.log(response);
                 if(error) {
@@ -34,12 +34,10 @@ class Users extends Component {
                                 {response.data.map(item => <div className="col-xs-12 col-sm-6 col-md-6 col-lg-4" key={item.id}>
                                     <div className="card mb-3">
                                         <div className="card-block box-shadow">
-                                            <h4 className="card-title">{item.name}</h4>
+                                            <h4 className="card-title">{item.title}</h4>
                                             <p className="card-text">
-                                                <span>{item.username}</span>
-                                                <span>{item.email}</span>
+                                                <span>{item.body}</span>
                                             </p>
-                                            <Link to={"/Users/" + item.id} className="btn btn-primary btn-sm">View</Link>
                                         </div>
                                     </div>
                                 </div>)} 

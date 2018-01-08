@@ -5,6 +5,7 @@ import Header from './Components/-Header/Header';
 import Home from './Components/Home/Home';
 import Users from './Components/Users/Users';
 import UsersDetail from './Components/UsersDetail/UsersDetail';
+import Posts from './Components/Posts/Posts';
 
 //import logo from './logo.svg';
 //import './App.css';
@@ -18,6 +19,7 @@ class App extends Component {
         <Route exact path="/" component={Home}/>
         <Route exact path="/Users" component={Users}/>
         <Route path="/Users/:id" component={UsersDetail}/>
+        <Route exact path="/Posts" component={Posts}/>
 
       </div>
     );
